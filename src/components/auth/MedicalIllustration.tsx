@@ -30,29 +30,6 @@ const HIGHLIGHTS: Highlight[] = [
   { icon: FileHeart, label: "Unified records" },
 ];
 
-/** Animated ECG heartbeat line drawn along the panel. */
-function EcgLine() {
-  return (
-    <svg
-      viewBox="0 0 300 60"
-      className="h-14 w-full text-white/70"
-      fill="none"
-      aria-hidden
-    >
-      <motion.path
-        d="M0 30 H70 l8 -20 l10 40 l8 -30 l7 15 H150 l8 -22 l10 44 l8 -32 l7 14 H300"
-        stroke="currentColor"
-        strokeWidth={2}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        initial={{ pathLength: 0, opacity: 0 }}
-        animate={{ pathLength: 1, opacity: [0, 1, 1] }}
-        transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-      />
-    </svg>
-  );
-}
-
 const container: Variants = {
   hidden: {},
   show: { transition: { staggerChildren: 0.12, delayChildren: 0.15 } },
@@ -114,14 +91,11 @@ export function MedicalIllustration() {
 
       {/* Headline block */}
       <motion.div
-        className="relative z-10 max-w-md"
+        className="relative z-10 max-w-2xl"
         variants={container}
         initial="hidden"
         animate="show"
       >
-        <motion.div variants={item} className="mb-6">
-          <EcgLine />
-        </motion.div>
         <motion.h1
           variants={item}
           className="text-4xl font-semibold leading-tight tracking-tight"
