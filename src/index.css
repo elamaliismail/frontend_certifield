@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", "Segoe UI", system-ui, sans-serif;
+
+  /* brand */
+  --color-brand-50: #eef4ff;
+  --color-brand-100: #dce8ff;
+  --color-brand-200: #b3cdff;
+  --color-brand-300: #7fa9ff;
+  --color-brand-400: #4a7ef5;
+  --color-brand-500: #2a5cdb;
+  --color-brand-600: #2148b0;
+  --color-brand-700: #1c3a8f;
+  --color-brand-800: #17306f;
+
+  /* sidebar navy */
+  --color-navy-900: #0f1b2d;
+  --color-navy-800: #16233a;
+  --color-navy-700: #1e2d47;
+  --color-navy-600: #2a3c5c;
+
+  /* surface / text */
+  --color-surface: #f4f6fb;
+  --color-ink-900: #0f172a;
+  --color-ink-600: #475569;
+  --color-ink-400: #94a3b8;
+
+  /* status */
+  --color-status-amber-bg: #fef3e2;
+  --color-status-amber-fg: #b45309;
+  --color-status-green-bg: #e6f7ec;
+  --color-status-green-fg: #15803d;
+  --color-status-blue-bg: #e8f0fe;
+  --color-status-blue-fg: #1d4ed8;
+  --color-status-red-bg: #fdecec;
+  --color-status-red-fg: #c0392b;
+
+  /* healthcare palette (HealthCare AI authentication experience) */
+  --color-hc-primary: #2563eb;
+  --color-hc-secondary: #0ea5e9;
+  --color-hc-accent: #14b8a6;
+  --color-hc-success: #10b981;
+  --color-hc-bg: #f8fafc;
+
+  /* auth micro-animations */
+  --animate-shine: shine 3s ease-in-out infinite;
+  --animate-ecg: ecg 3.5s linear infinite;
+  --animate-shimmer: shimmer 1.6s ease-in-out infinite;
+}
+
+@keyframes shine {
+  0% {
+    transform: translateX(-120%) skewX(-20deg);
+  }
+  60%,
+  100% {
+    transform: translateX(220%) skewX(-20deg);
+  }
+}
+
+@keyframes ecg {
+  0% {
+    stroke-dashoffset: 1000;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Thin, unobtrusive scrollbars that match the Certifield palette. */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 transparent;
+}
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: #cbd5e1;
+  border-radius: 9999px;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background-color: #94a3b8;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-surface);
+  color: var(--color-ink-900);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
